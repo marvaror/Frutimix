@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114618508615519762}
   - component: {fileID: 114578485672573206}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: bajo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,8 +73,8 @@ MonoBehaviour:
   m_MinHeight: -1
   m_PreferredWidth: 152
   m_PreferredHeight: 61
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
+  m_FlexibleWidth: 0
+  m_FlexibleHeight: 0
 --- !u!114 &114618508615519762
 MonoBehaviour:
   m_ObjectHideFlags: 1
