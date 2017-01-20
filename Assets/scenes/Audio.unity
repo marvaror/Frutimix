@@ -221,7 +221,7 @@ Prefab:
     - target: {fileID: 224776350841334120, guid: d9da68ad5abcc39449983a8a9d60e585,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -34.5
       objectReference: {fileID: 0}
     - target: {fileID: 224564882003893186, guid: d9da68ad5abcc39449983a8a9d60e585,
         type: 2}
@@ -241,7 +241,7 @@ Prefab:
     - target: {fileID: 224564882003893186, guid: d9da68ad5abcc39449983a8a9d60e585,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -34.5
       objectReference: {fileID: 0}
     - target: {fileID: 224089410850961630, guid: d9da68ad5abcc39449983a8a9d60e585,
         type: 2}
@@ -261,7 +261,7 @@ Prefab:
     - target: {fileID: 224089410850961630, guid: d9da68ad5abcc39449983a8a9d60e585,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -34.5
       objectReference: {fileID: 0}
     - target: {fileID: 224442427130590876, guid: d9da68ad5abcc39449983a8a9d60e585,
         type: 2}
@@ -281,7 +281,7 @@ Prefab:
     - target: {fileID: 224442427130590876, guid: d9da68ad5abcc39449983a8a9d60e585,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -34.5
       objectReference: {fileID: 0}
     - target: {fileID: 224382388298157024, guid: d9da68ad5abcc39449983a8a9d60e585,
         type: 2}
@@ -301,7 +301,7 @@ Prefab:
     - target: {fileID: 224382388298157024, guid: d9da68ad5abcc39449983a8a9d60e585,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -34.5
       objectReference: {fileID: 0}
     - target: {fileID: 114901883090723856, guid: d9da68ad5abcc39449983a8a9d60e585,
         type: 2}
@@ -397,6 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3d1b0a00e0e1a4c8a0c8be05314f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miMixer: 
   outPut: 
   miClip: {fileID: 8300000, guid: e16134898b0f2f4449168974ac0901d0, type: 3}
   miVolumen: 0.4
@@ -664,7 +665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3d1b0a00e0e1a4c8a0c8be05314f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outPut: Electronic_FX1
+  miMixer: FX
+  outPut: FX_Elec
   miClip: {fileID: 8300000, guid: 1fff59471433f4240b5c0e01ff31ee6c, type: 3}
   miVolumen: 1
 --- !u!1 &1455399642 stripped
@@ -683,7 +685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3d1b0a00e0e1a4c8a0c8be05314f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outPut: 
+  miMixer: Bateria
+  outPut: Bat_Elec
   miClip: {fileID: 8300000, guid: 7898da85773f7a7489d375c125fe4389, type: 3}
   miVolumen: 0.5
 --- !u!114 &1455399645
@@ -822,6 +825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3d1b0a00e0e1a4c8a0c8be05314f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  miMixer: 
   outPut: 
   miClip: {fileID: 8300000, guid: 4b11d98608e32b249866610a68bea39e, type: 3}
   miVolumen: 1

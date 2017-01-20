@@ -6,8 +6,8 @@ using UnityEngine.Audio;
 public class PreEscuchar_Play : MonoBehaviour {
 
 	AudioSource sound;
-	public string outPut;
-    public string subGroup;
+	public string miMixer;
+    public string outPut;
     public AudioClip miClip;
 	public float miVolumen;
 	//public AudioMixer miAudiomixer;
@@ -22,8 +22,8 @@ public class PreEscuchar_Play : MonoBehaviour {
 	
 	public void PlaySound(){
         sound.Stop();
-        AudioMixer mixer = Resources.Load("Mixer/"+outPut) as AudioMixer;
-		sound.outputAudioMixerGroup = mixer.FindMatchingGroups (subGroup) [0];
+		AudioMixer mixer = Resources.Load("Mixers/"+miMixer) as AudioMixer;
+		sound.outputAudioMixerGroup = mixer.FindMatchingGroups (outPut) [0];
 		
 		sound.clip = miClip;
 		sound.volume = miVolumen;
