@@ -9,7 +9,7 @@ public class PreEscuchar_Play : MonoBehaviour {
 	public string miMixer;
     public string outPut;
     public AudioClip miClip;
-	public float miVolumen;
+	//public float miVolumen;
 	//public AudioMixer miAudiomixer;
 
 	// Use this for initialization
@@ -19,14 +19,17 @@ public class PreEscuchar_Play : MonoBehaviour {
 
 
 	}
-	
+	/// <summary>
+	/// funcion que reproduce cada audio y lo rutea a la salida del mixer
+	/// </summary>
+
 	public void PlaySound(){
         sound.Stop();
 		AudioMixer mixer = Resources.Load("Mixers/"+miMixer) as AudioMixer;
 		sound.outputAudioMixerGroup = mixer.FindMatchingGroups (outPut) [0];
 		
 		sound.clip = miClip;
-		sound.volume = miVolumen;
+		//sound.volume = miVolumen;
 
 		sound.Play ();
 
