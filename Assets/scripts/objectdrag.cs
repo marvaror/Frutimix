@@ -6,31 +6,43 @@ using UnityEngine.EventSystems;
 
 // Analysis disable CheckNamespace
 public class objectdrag : MonoBehaviour ,IDragHandler,IBeginDragHandler,IEndDragHandler {
-// Analysis restore CheckNamespace
+	public static GameObject itemBeingDragged;
+	Vector3 startPosition;
+	Transform startParent;
 	//public GameObject []baterias;
 
-	/*public void OnClick(){
-		GameObject clon = Instantiate (baterias [0], transform.position, transform .rotation)as GameObject;
-	}*/
+	#region IBeginDragHandler implementation
 
-	//detectamos el primer click para mover objeto
-	public void OnBeginDrag (PointerEventData eventdata){
-		Debug.Log ("onbegindrag");
-
-		this.transform.SetParent(this.transform.parent);
-		//GameObject clon = Instantiate (baterias [0], transform.position, transform
-		//	.rotation)as GameObject;
-		
+	public void OnBeginDrag (PointerEventData eventData)
+	{
+		//GameObject clon = Instantiate (baterias [0], rectransform.position, rectransform.rotation)as GameObject;
+		itemBeingDragged = gameObject;
+		startPosition = transform.position;
+		startParent = transform.parent;
+		GetComponent<CanvasGroup>().blocksRaycasts = false;
 	}
 
-	public void OnDrag (PointerEventData eventdata){
-		Debug.Log ("ondrag");
-		this.transform.position = eventdata.position;	
+	#endregion
 
+	#region IDragHandler implementation
+
+	public void OnDrag (PointerEventData eventData)
+	{
+		transform.position = eventData.position;
 	}
 
-	public void OnEndDrag (PointerEventData eventdata){
-		Debug.Log ("onenddrag");
+	#endregion
 
+	#region IEndDragHandler implementation
+
+	public void OnEndDrag (PointerEventData eventData)
+	{
+		itemBeingDragged = null;
+		GetComponent<CanvasGroup>().blocksRaycasts = true;
+		if(transform.parent == startParent){
+			transform.position = startPosition;
+		}
 	}
+
+	#endregion
 }
