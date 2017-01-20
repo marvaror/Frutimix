@@ -1,0 +1,81 @@
+{
+    
+    "frutimix": [
+      {
+        "level1": [
+          {
+            "content0": "nombreaudio",
+            "content1": "nombremixer",
+            "content2": "nombresubgroup",
+            "content3":  "tag1-tag2-tag3" 
+          },
+          {
+            "content0": "nombreaudio2",
+            "content1": "nombremixer2",
+            "content2": "nombresubgroup2",
+            "content3":  "tag1-tag2-tag3" 
+          },
+          {
+            "content0": "nombreaudio3",
+            "content1": "nombremixer3",
+            "content2": "nombresubgroup3",
+            "content3":  "tag1-tag2-tag3" 
+          }
+        ]
+
+
+      },
+
+      {
+        "level2": [
+          {
+            "content0": "nombreaudio4",
+            "content1": "nombremixer4",
+            "content2": "nombresubgroup4",
+            "content3":  "tag1-tag2-tag3" 
+          },
+          {
+            "content0": "nombreaudio5",
+            "content1": "nombremixer5",
+            "content2": "nombresubgroup5",
+            "content3":  "tag1-tag2-tag3" 
+          },
+          {
+            "content0": "nombreaudio6",
+            "content1": "nombremixer6",
+            "content2": "nombresubgroup6",
+            "content3":  "tag1-tag2-tag3" 
+          }
+        ]
+
+
+      },
+
+      {
+        "level3": [
+          {
+            "content0": "nombreaudio7",
+            "content1": "nombremixer17",
+            "content2": "nombresubgroup7",
+            "content3":  "tag1-tag2-tag3" 
+          },
+          {
+            "content0": "nombreaudi8o",
+            "content1": "nombremixer8",
+            "content2": "nombresubgroup8",
+            "content3":  "tag1-tag2-tag3" 
+          },
+          {
+            "content0": "nombreaudio9",
+            "content1": "nombremixer9",
+            "content2": "nombresubgroup9",
+            "content3":  "tag1-tag2-tag3" 
+          }
+        ]
+
+
+      }
+
+      
+    ]
+}
