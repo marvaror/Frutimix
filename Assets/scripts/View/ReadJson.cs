@@ -30,6 +30,13 @@ public class ReadJson : MonoBehaviour
         set { componentsLevel3 = value; }
     }
 
+    public List<string> componentsLevel4;
+    public List<string> Level4
+    {
+        get { return componentsLevel4; }
+        set { componentsLevel4 = value; }
+    }
+
 
 
     public List<string> actualTags;
@@ -82,19 +89,66 @@ public class ReadJson : MonoBehaviour
                     {
                         componentsLevel2.Add(items["frutimix"][i]["level" + (i + 1)][ran]["content" + j].ToString());
                     }
-                    else
+                    else if (i == 2)
                     {
                         componentsLevel3.Add(items["frutimix"][i]["level" + (i + 1)][ran]["content" + j].ToString());
                     }
-                        
+                    else 
+                    {
+                        componentsLevel4.Add(items["frutimix"][i]["level" + (i + 1)][ran]["content" + j].ToString());
+                    }
+
                 }
 
+               
                 // content.SendData(i,num, items["frutimix"][0]["s" + i].ToString());// I send the square position, the num varible with zeros(exa:103006780)
 
             }
+            FillActualTags(level);
         }
     }
 
+    public void FillActualTags(int actualLevel)
+    {
+        int a;
+        string _tag = "";
+        string aux=" ";
+        if (actualLevel == 1) {
+             a = componentsLevel1[3].Length;
+            aux = componentsLevel1[3];
+        }
+        else if(actualLevel == 2)
+        {
+            a = componentsLevel2[3].Length;
+            aux = componentsLevel2[3];
+        }
+        else if (actualLevel == 3)
+        {
+            a = componentsLevel3[3].Length;
+            aux = componentsLevel3[3];
+        }
+        else 
+        {
+            a = componentsLevel4[3].Length;
+            aux = componentsLevel4[3];
+        }
+
+        for (int o = 0; o < a; o++)
+        {
+            if ("-" == aux[o].ToString() || a-o==1)
+            {
+                
+                actualTags.Add(_tag);
+                _tag = "";
+                continue;
+            }
+           
+            _tag += aux[o];
+        }
+
+
+
+    }
 
 
 
