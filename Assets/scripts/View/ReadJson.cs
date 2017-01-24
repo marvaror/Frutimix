@@ -7,30 +7,32 @@ public class ReadJson : MonoBehaviour
 {
     public int level = 1;
     private JsonData items;
-    public List <string> componentsLevel1;
+    [SerializeField]
+    List <string> componentsLevel1;
     public List <string> Level1
     {
         get { return componentsLevel1; }
         set { componentsLevel1 = value; }
     }
 
-
-    public List<string> componentsLevel2;
+    [SerializeField]
+    List<string> componentsLevel2;
     public List<string> Level2
     {
         get { return componentsLevel2; }
         set { componentsLevel2 = value; }
     }
 
-
-    public List<string> componentsLevel3;
+    [SerializeField]
+    List<string> componentsLevel3;
     public List<string> Level3
     {
         get { return componentsLevel3; }
         set { componentsLevel3 = value; }
     }
 
-    public List<string> componentsLevel4;
+    [SerializeField]
+    List<string> componentsLevel4;
     public List<string> Level4
     {
         get { return componentsLevel4; }
@@ -38,8 +40,8 @@ public class ReadJson : MonoBehaviour
     }
 
 
-
-    public List<string> actualTags;
+    [SerializeField]
+    List<string> actualTags;
 
     public List<string> MyTags
     {
@@ -51,7 +53,7 @@ public class ReadJson : MonoBehaviour
     /// <summary>
     ///
     /// </summary>
-    void Start()
+    void Awake()
     {
        
         Processjson(File.ReadAllText(Application.dataPath + "/Resources/frutimix.json"));
@@ -65,7 +67,7 @@ public class ReadJson : MonoBehaviour
     void Processjson(string json)
     {
         items = JsonMapper.ToObject(json);
-        string aux;
+        //string aux;
 
         if (items["frutimix"].Count > 0)
         {
@@ -113,6 +115,7 @@ public class ReadJson : MonoBehaviour
         int a;
         string _tag = "";
         string aux=" ";
+        actualTags.Clear();
         if (actualLevel == 1) {
              a = componentsLevel1[3].Length;
             aux = componentsLevel1[3];
@@ -148,6 +151,32 @@ public class ReadJson : MonoBehaviour
 
 
 
+    }
+
+    public List<string> MyList() {
+        if (level == 1)
+        {
+            return Level1;
+
+        }else if(level == 2)
+        {
+            return Level2;
+        }
+        else if (level == 3)
+        {
+            return Level3;
+        }
+        else 
+        {
+            return Level4;
+        }
+
+    }
+
+    public List<string> TheTagsAre()
+    {
+        FillActualTags(level);
+        return MyTags;
     }
 
 
