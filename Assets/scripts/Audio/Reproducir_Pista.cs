@@ -7,9 +7,12 @@ public class Reproducir_Pista : MonoBehaviour {
 
 	AudioSource pista;
     List<string> actualList;
+	GameObject muestraManager; 
+
 	// Use this for initialization
 	void Start () {
 		pista = transform.GetComponent<AudioSource> ();
+		muestraManager = GameObject.Find ("zonacolocacion");
 
 	}
 	
@@ -18,11 +21,12 @@ public class Reproducir_Pista : MonoBehaviour {
 
 		pista.Stop ();
         ReadJson f;
-        f = GetComponent<ReadJson>();
+        f = muestraManager.GetComponent<ReadJson>();
         int actualLevel = f.level;
         actualList = f.MyList();
         if (actualList.Count>0)
         {
+			Debug.Log("entre");
             AudioClip sonido = Resources.Load("Audios/" + actualList[0]) as AudioClip;
             AudioMixer mixer = Resources.Load("Mixers/" + actualList[1]) as AudioMixer;
             pista.outputAudioMixerGroup = mixer.FindMatchingGroups(actualList[2])[0];

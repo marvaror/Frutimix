@@ -4,22 +4,22 @@
       {
         "level1": [
           {
-            "content0": "nombreaudio",
-            "content1": "nombremixer",
-            "content2": "nombresubgroup",
-            "content3":  "tag1-tag2-tag3-tag4-" 
+            "content0": "Bat_Elec",
+            "content1": "Bateria",
+            "content2": "Bat_Elec",
+            "content3":  "Bat_Elec-" 
           },
           {
-            "content0": "nombreaudio2",
-            "content1": "nombremixer2",
-            "content2": "nombresubgroup2",
-            "content3":  "tag1-tag2-tag3-" 
+            "content0": "Bat_Rap",
+            "content1": "Bateria",
+            "content2": "Bat_Rap",
+            "content3":  "Bat_Rap-" 
           },
           {
-            "content0": "nombreaudio3",
-            "content1": "nombremixer3",
-            "content2": "nombresubgroup3",
-            "content3":  "tag1-tag2-tag3-" 
+            "content0": "Bat_Rock",
+            "content1": "Bateria",
+            "content2": "Bat_Rock",
+            "content3":  "Bat_Rock-" 
           }
         ]
 
@@ -29,22 +29,22 @@
       {
         "level2": [
           {
-            "content0": "nombreaudio4",
-            "content1": "nombremixer4",
-            "content2": "nombresubgroup4",
-            "content3":  "tag1-tag2-tag3-" 
+            "content0": "Nivel2_Elec",
+            "content1": "Nivel2",
+            "content2": "Elec_2",
+            "content3":  "Bat_Elec-Baj_Elec-" 
           },
           {
-            "content0": "nombreaudio5",
-            "content1": "nombremixer5",
-            "content2": "nombresubgroup5",
-            "content3":  "tag1-tag2-tag3-" 
+            "content0": "Nivel2_Rap",
+            "content1": "Nivel2",
+            "content2": "Rap_2",
+            "content3":  "Bat_Rap-Baj_Rap-" 
           },
           {
-            "content0": "nombreaudio6",
-            "content1": "nombremixer6",
-            "content2": "nombresubgroup6",
-            "content3":  "tag1-tag2-tag3-" 
+            "content0": "Nivel2_Rock",
+            "content1": "Nivel2",
+            "content2": "Rock_2",
+            "content3":  "Bat_Rock-Baj_Rock-" 
           }
         ]
 
@@ -53,23 +53,23 @@
 
       {
         "level3": [
-          {
-            "content0": "nombreaudio7",
-            "content1": "nombremixer17",
-            "content2": "nombresubgroup7",
-            "content3":  "tag1-tag2-tag3-" 
+           {
+            "content0": "Nivel3_Elec",
+            "content1": "Nivel3",
+            "content2": "Elec_3",
+            "content3":  "Bat_Elec-Baj_Elec-FX_Elec-" 
           },
           {
-            "content0": "nombreaudi8o",
-            "content1": "nombremixer8",
-            "content2": "nombresubgroup8",
-            "content3":  "tag1-tag2-tag3-" 
+            "content0": "Nivel3_Rap",
+            "content1": "Nivel3",
+            "content2": "Rap_3",
+            "content3":  "Bat_Rap-Baj_Rap-FX_Rap-" 
           },
           {
-            "content0": "nombreaudio9",
-            "content1": "nombremixer9",
-            "content2": "nombresubgroup9",
-            "content3":  "tag1-tag2-tag3-" 
+            "content0": "Nivel3_Rock",
+            "content1": "Nivel3",
+            "content2": "Rock_3",
+            "content3":  "Bat_Rock-Baj_Rock-FX_Rock-" 
           }
         ]
 
@@ -78,23 +78,23 @@
 
 	  {
         "level4": [
-          {
-            "content0": "nombreaudio10",
-            "content1": "nombremixer11",
-            "content2": "nombresubgroup12",
-            "content3":  "tag1-tag2-tag3-" 
+           {
+            "content0": "Nivel4_Elec_completo",
+            "content1": "Nivel4",
+            "content2": "Elec_4",
+            "content3":  "Bat_Elec-Baj_Elec-FX_Elec-Synth_Elec-" 
           },
           {
-            "content0": "nombreaudi13",
-            "content1": "nombremixer13",
-            "content2": "nombresubgroup13",
-            "content3":  "tag1-tag2-tag3-" 
+            "content0": "Nivel4_Rap_completo",
+            "content1": "Nivel4",
+            "content2": "Rap_4",
+            "content3":  "Bat_Rap-Baj_Rap-FX_Rap-Synth_Rap-" 
           },
           {
-            "content0": "nombreaudio14",
-            "content1": "nombremixer14",
-            "content2": "nombresubgroup14",
-            "content3":  "tag1-tag2-tag3-" 
+            "content0": "Nivel4_Rock_completo",
+            "content1": "Nivel4",
+            "content2": "Rock_4",
+            "content3":  "Bat_Rock-Baj_Rock-FX_Rock-Synth_Rock-" 
           }
         ]
 
