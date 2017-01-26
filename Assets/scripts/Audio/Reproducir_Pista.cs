@@ -8,16 +8,19 @@ public class Reproducir_Pista : MonoBehaviour {
 	AudioSource pista;
     List<string> actualList;
 	GameObject muestraManager; 
-
+	GameObject hand; 
 	// Use this for initialization
 	void Start () {
 		pista = transform.GetComponent<AudioSource> ();
 		muestraManager = GameObject.Find ("zonacolocacion");
+		hand = GameObject.Find ("hand");
 
 	}
 	
 	// Update is called once per frame
 	public void EscucharPista() {
+
+		hand.GetComponent<AudioSource>().Stop();
 
 		pista.Stop ();
         ReadJson f;

@@ -9,12 +9,14 @@ public class PreEscuchar_Play : MonoBehaviour {
 	public string miMixer;
     public string outPut;
     public AudioClip miClip;
+	GameObject muestra;
 	//public float miVolumen;
 	//public AudioMixer miAudiomixer;
 
 	// Use this for initialization
 	void Start () {
 		sound = transform.parent.GetComponent<AudioSource> ();
+		muestra = GameObject.Find("Muestra");
 
 
 
@@ -24,6 +26,8 @@ public class PreEscuchar_Play : MonoBehaviour {
 	/// </summary>
 
 	public void PlaySound(){
+
+		muestra.GetComponent<AudioSource>().Stop();
         sound.Stop();
 		AudioMixer mixer = Resources.Load("Mixers/"+miMixer) as AudioMixer;
 		sound.outputAudioMixerGroup = mixer.FindMatchingGroups (outPut) [0];
