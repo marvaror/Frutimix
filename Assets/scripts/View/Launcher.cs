@@ -8,7 +8,7 @@ public class Launcher : MonoBehaviour {
 	void Start () {
 
 		// Cargamos los prefabs principales
-	    HudManager.instance.LoadHud (EHudScreenID.MenuInicio);
+	    HudManager.instance.LoadHud (EHudScreenID.Splash);
 	}
 	
 	// Update is called once per frame
