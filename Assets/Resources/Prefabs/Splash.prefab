@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114397887547086690}
   - component: {fileID: 114650723060071306}
   - component: {fileID: 82177431786607758}
+  - component: {fileID: 114906524633832954}
   m_Layer: 5
   m_Name: FrutimixSplash
   m_TagString: Untagged
@@ -132,7 +133,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -173,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -247,6 +248,22 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114906524633832954
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1533208019382162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179288f69cd0175428ea99ae59518bee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOut: 0
+  mid: 0
+  allCanvasGroup: 0
+  speed: 2
+  inTransition: 1
 --- !u!222 &222410770338371332
 CanvasRenderer:
   m_ObjectHideFlags: 1
