@@ -3,9 +3,9 @@ using System.Collections;
 using UnityEngine.EventSystems;
 
 
-public class slot : MonoBehaviour ,IDropHandler{
-
-	public GameObject item {
+public class slot : MonoBehaviour,IDropHandler {
+   
+    public GameObject item {
 		get {
 			if(transform.childCount>0){
 				return transform.GetChild (0).gameObject;
@@ -14,13 +14,18 @@ public class slot : MonoBehaviour ,IDropHandler{
 		}
 	}
 
-	#region IDropHandler implementation
-	public void OnDrop (PointerEventData eventData)
+    #region IDropHandler implementation
+    public void OnDrop (PointerEventData eventData)
 	{
-		if(!item){
+        if (item)
+        {
+            
+            Destroy ( item);
+        }
+        {
 			objectdrag.itemBeingDragged.transform.SetParent (transform);
-			ExecuteEvents.ExecuteHierarchy<IHasChanged>(gameObject,null,(x,y) => x.HasChanged ());
+			//ExecuteEvents.ExecuteHierarchy<IHasChanged>(gameObject,null,(x,y) => x.HasChanged ());
 		}
 	}
-	#endregion
+    #endregion
 }
