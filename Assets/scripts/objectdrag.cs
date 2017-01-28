@@ -7,7 +7,8 @@ using UnityEngine.UI;
 // Analysis disable CheckNamespace
 public class objectdrag : MonoBehaviour ,IDragHandler,IBeginDragHandler,IEndDragHandler {
 	public static GameObject itemBeingDragged;
-	Vector3 startPosition;
+    string namePrefab;
+    Vector3 startPosition;
 	Transform startParent;
     //public  GameObject [] clones;
     GameObject miClone;
@@ -35,8 +36,10 @@ public class objectdrag : MonoBehaviour ,IDragHandler,IBeginDragHandler,IEndDrag
             miClone.GetComponent<slotsound>().miMixer=auxmixer;
             miClone.GetComponent<slotsound>().outPut = auxoutput;
             miClone.GetComponent<slotsound>().miClip = auxaudioclip;
+            namePrefab = itemBeingDragged.name;
             img=itemBeingDragged.GetComponent<Image>().sprite;
             itemBeingDragged = miClone;
+            itemBeingDragged.name = namePrefab;
             Debug.Log("comenze a ser draggeado" + transform.parent.name);
         }
 	}

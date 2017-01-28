@@ -12,17 +12,17 @@ public class drop : MonoBehaviour, IDropHandler,IPointerExitHandler,IPointerEnte
 
 	public void OnPointerEnter(PointerEventData eventdata){
 
-		Debug.Log ("pointer enter " + gameObject.name);
+		//Debug.Log ("pointer enter " + gameObject.name);
 	}
 
 	public void OnPointerExit(PointerEventData eventdata){
 
-		Debug.Log ("pointer exit " + gameObject.name);
+		//Debug.Log ("pointer exit " + gameObject.name);
 	}
 
 	public void OnDrop(PointerEventData eventdata){
 
-		Debug.Log ("ondrop to " + gameObject.name);
+		//Debug.Log ("ondrop to " + gameObject.name);
 	}
 
 }
