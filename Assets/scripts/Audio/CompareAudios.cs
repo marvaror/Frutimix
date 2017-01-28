@@ -23,7 +23,7 @@ public class CompareAudios : MonoBehaviour {
         {
             nameAudioChallenge = nameAudioChallenge + audioChallenge[i].name;
         }
-        
+
         audioUser = GameObject.FindGameObjectsWithTag("Audio_Usuario");
         
         for (int i = 0; i < audioUser.Length; i++)
@@ -37,14 +37,24 @@ public class CompareAudios : MonoBehaviour {
     public void CompareAudioClips(string nombreAudioReto, string nombreAudioUsuario)
     {
 
+        bool winGame = true;
         if (nombreAudioReto == nombreAudioUsuario)
         {
+            winGame = true;
+            Win(winGame);
             Debug.Log("GANASTE!!!");
         }
         else {
+            winGame = false;
+            Win(winGame);
             Debug.Log("PERDISTE, DEBES PRACTICAR MAS!!!");
         }
 
+    }
+
+    public void Win(bool ganador){
+
+    
     }
 }
 
