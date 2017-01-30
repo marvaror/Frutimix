@@ -56,6 +56,7 @@ public class CompareAudios : MonoBehaviour {
             }
             else {
                 tagsToEvaluate.Add(miNieto.transform.GetChild(0).name);
+                miNieto.transform.GetChild(0).GetComponent<slotsound>().PlaySound();
             }
 
 
@@ -72,6 +73,7 @@ public class CompareAudios : MonoBehaviour {
             c = Resources.Load("Audios/Ganar") as AudioClip;
             if (myJZone.ChangeLevel < 4)
             {
+                StopSlots();
                 gano.SetActive(true);
             }
             else
@@ -93,9 +95,20 @@ public class CompareAudios : MonoBehaviour {
         a.clip = c;
         a.Play();
     }
-
+    void StopSlots()
+    {
+        foreach (GameObject miNieto in audioChallenge)
+        {
+            if (miNieto.transform.childCount == 0)
+            {
+                continue;
+            }
+            miNieto.transform.GetComponent<AudioSource>().Stop();
+        }
+    }
     public void Win() {
-      
+
+        StopSlots();
         tags.Clear();
         tagsToEvaluate.Clear();
         myJZone.ChangeLevel++;
@@ -107,7 +120,7 @@ public class CompareAudios : MonoBehaviour {
 
     public void Reset()
     {
-        
+        StopSlots();
         tags.Clear();
         tagsToEvaluate.Clear();
         myJZone.ChangeLevel=5;

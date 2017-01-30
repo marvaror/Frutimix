@@ -19,7 +19,7 @@ public class slotsound : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        sound = transform.GetComponent<AudioSource>();
+        
         muestra = GameObject.Find("Muestra");
 
 
@@ -31,7 +31,7 @@ public class slotsound : MonoBehaviour
 
     public void PlaySound()
     {
-
+        sound = transform.parent.GetComponent<AudioSource>();
         muestra.GetComponent<AudioSource>().Stop();
         sound.Stop();
         AudioMixer mixer = Resources.Load("Mixers/" + miMixer) as AudioMixer;

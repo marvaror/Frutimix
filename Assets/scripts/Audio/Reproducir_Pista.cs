@@ -8,21 +8,27 @@ public class Reproducir_Pista : MonoBehaviour {
 	AudioSource pista;
     List<string> actualList;
 	GameObject muestraManager; 
-	GameObject hand; 
-	// Use this for initialization
-	void Start () {
+	GameObject hand;
+  
+    int numChildren;
+    // Use this for initialization
+    void Start () {
 		pista = transform.GetComponent<AudioSource> ();
 		muestraManager = GameObject.Find ("zonacolocacion");
 		hand = GameObject.Find ("hand");
-
-	}
+       
+        numChildren = muestraManager.transform.childCount;
+    }
 	
 	// Update is called once per frame
 	public void EscucharPista() {
 
 		hand.GetComponent<AudioSource>().Stop();
-
-		pista.Stop ();
+        for (int i = 0; i < numChildren; ++i)
+        {
+            muestraManager.transform.GetChild(i).GetComponent<AudioSource>().Stop();
+        }
+        pista.Stop ();
         ReadJson f;
         f = muestraManager.GetComponent<ReadJson>();
         int actualLevel = f.ChangeLevel;

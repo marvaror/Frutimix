@@ -10,7 +10,7 @@ public class ReadJson : MonoBehaviour
     public int ChangeLevel
     {
         get { return level; }
-        set { if (level < 4) { level = value; } else { level = 1; Awake(); } }
+        set { level = value;  if (level > 4) { level = 1;ResetSlots(); Awake();  } }
     }
     private JsonData items;
     [SerializeField]
@@ -54,7 +54,7 @@ public class ReadJson : MonoBehaviour
         get { return actualTags; }
         set { actualTags = value; }
     }
-
+    public GameObject[] slots;
 
     /// <summary>
     ///
@@ -157,7 +157,11 @@ public class ReadJson : MonoBehaviour
            
             _tag += aux[o];
         }
-
+        //Debug.Log("entree"+ level);
+        for(int i=0;i< level; i++)
+        {
+            slots[i].SetActive(true);
+        }
 
 
     }
@@ -188,6 +192,17 @@ public class ReadJson : MonoBehaviour
         return MyTags;
     }
 
+    public void ResetSlots()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (i == 0)
+            {
+                continue;
+            }
+            slots[i].SetActive(false);
+        }
+    }
 
 
 }

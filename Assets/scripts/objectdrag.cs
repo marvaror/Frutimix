@@ -9,10 +9,15 @@ public class objectdrag : MonoBehaviour ,IDragHandler,IBeginDragHandler,IEndDrag
 	public static GameObject itemBeingDragged;
     string namePrefab;
     Vector3 startPosition;
-	Transform startParent;
+
     //public  GameObject [] clones;
     GameObject miClone;
     Sprite img;
+    GameObject slotOne;
+    void Start()
+    {
+        slotOne = GameObject.Find("slot");
+    }
 
     #region IBeginDragHandler implementation
 
@@ -25,7 +30,7 @@ public class objectdrag : MonoBehaviour ,IDragHandler,IBeginDragHandler,IEndDrag
 		//GameObject clon = Instantiate (clones [0], transform.position, transform.rotation)as GameObject;
 		itemBeingDragged = gameObject;
 		startPosition = transform.position;
-		startParent = transform.parent;
+		//startParent =slotOne.transform;
 		GetComponent<CanvasGroup>().blocksRaycasts = false;
         if (itemBeingDragged.GetComponent<PreEscuchar_Play>() != null)
         {
@@ -64,15 +69,17 @@ public class objectdrag : MonoBehaviour ,IDragHandler,IBeginDragHandler,IEndDrag
 		itemBeingDragged = null;
 		GetComponent<CanvasGroup>().blocksRaycasts = true;
         AudioClip c= Resources.Load("Audios/Arrastrar") as AudioClip;
-        if (transform.parent == startParent){
-			transform.position = startPosition;
-            miClone.GetComponent<Image>().sprite=img;
+        if ( miClone.transform.parent!=null){
+
+                      
+            miClone.GetComponent<Image>().sprite = img;
             miClone.transform.parent.GetComponent<AudioSource>().clip = c;
             miClone.transform.parent.GetComponent<AudioSource>().Play();
+            
 
 
         }
-
+        transform.position = startPosition;
         if (miClone.transform.parent == null)
         {
             Destroy(miClone);
