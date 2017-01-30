@@ -1,36 +1,55 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class CompareAudios : MonoBehaviour {
 
     public GameObject gano;
     public GameObject perdio;
-    public List<GameObject> audioChallenge; 
+    public GameObject final;
+    public List<GameObject> audioChallenge;
     public List<string> tags;
     public List<string> tagsToEvaluate;
+    public GameObject[] vidasObj;
     ReadJson myJZone;
+    [SerializeField]
+    private int vidas;
+    AudioSource a;
+    public int Misvidas
+    {
+        get { return vidas; }
+        set { vidas = value; }
+    }
 
-    void Start (){
+    void Start() {
+        a = GetComponent<AudioSource>();
         myJZone = transform.GetComponent<ReadJson>();
         tags = myJZone.TheTagsAre();
         foreach (Transform child in transform)
         {
             audioChallenge.Add(child.gameObject);
-          
+
         }
     }
 
-    void Update() {
 
-  
-    }
 
     public void CompareAudioClips()
     {
-        tags = myJZone.TheTagsAre();
-        bool winGame=true;
-        foreach(GameObject miNieto in audioChallenge){
+
+        GameObject muestraManager = GameObject.Find("Muestra");
+        GameObject hand = GameObject.Find("hand");
+        hand.GetComponent<AudioSource>().Stop();
+        muestraManager.GetComponent<AudioSource>().Stop();
+        bool winGame = true;
+        if (tags.Count == 0)
+        {
+            tags = myJZone.TheTagsAre();
+        }
+        tagsToEvaluate.Clear();
+        foreach (GameObject miNieto in audioChallenge)
+        {
             if (miNieto.transform.childCount == 0)
             {
                 tagsToEvaluate.Add("None");
@@ -39,40 +58,86 @@ public class CompareAudios : MonoBehaviour {
                 tagsToEvaluate.Add(miNieto.transform.GetChild(0).name);
             }
 
-           
+
         }
-        
-        for(int i=0; i<tags.Count; i++){
-            if(tags[i].Equals(tagsToEvaluate[i])){
+        for (int i = 0; i < tags.Count; i++) {
+            if (tags[i].Equals(tagsToEvaluate[i])) {
                 continue;
             }
             winGame = false;
         }
-
+        AudioClip c;
         if (winGame)
         {
-            gano.SetActive(true);
+            c = Resources.Load("Audios/Ganar") as AudioClip;
+            if (myJZone.ChangeLevel < 4)
+            {
+                gano.SetActive(true);
+            }
+            else
+            {
+                final.SetActive(true);
+            }
         }
         else {
-            perdio.SetActive(true);
+            c = Resources.Load("Audios/Error") as AudioClip;
+            DestruirNieto();
+            vidas--;
+            vidasObj[vidas].GetComponent<Fade>().inTransition = true;
+            if (vidas == 0)
+            {
+                perdio.SetActive(true);
+            }
+
         }
-
-        
-
-
+        a.clip = c;
+        a.Play();
     }
 
-    public void Win(){
-        myJZone.level++;
+    public void Win() {
+      
         tags.Clear();
         tagsToEvaluate.Clear();
+        myJZone.ChangeLevel++;
+        myJZone.TheTagsAre();
+        DestruirNieto();
+        gano.SetActive(false);
+       
+    }
+
+    public void Reset()
+    {
+        
+        tags.Clear();
+        tagsToEvaluate.Clear();
+        myJZone.ChangeLevel=5;
+        DestruirNieto();
+        for(int i = 0; i < vidasObj.Length; i++)
+        {
+            vidasObj[i].SetActive(true);
+            vidasObj[i].GetComponent<Fade>().Reset();
+        }
+        vidas = 3;
+        perdio.SetActive(false);
+        gano.SetActive(false);
+        perdio.SetActive(false);
+        final.SetActive(false);
+    }
+
+    public void Home()
+    {
+        HudManager.instance.LoadHud(EHudScreenID.MenuInicio);
+    }
+
+    void DestruirNieto()
+    {
         foreach (GameObject miNieto in audioChallenge)
         {
             if (miNieto.transform.childCount != 0)
             {
-                Destroy(miNieto.transform.GetChild(0));
+                Destroy(miNieto.transform.GetChild(0).gameObject);
             }
-     
+
         }
     }
 }

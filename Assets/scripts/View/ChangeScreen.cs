@@ -12,26 +12,25 @@ public class ChangeScreen : MonoBehaviour
         if (transform.name == "")
         {
             mychild = transform.GetChild(0).gameObject;
-            mychild.GetComponent<Button>().onClick.AddListener(() => OnClickB());
+            mychild.GetComponent<Button>().onClick.AddListener(() => PlayGame());
 
         }
         else if (transform.name == "FrutimixSplash")
         {
             StartCoroutine("SplashTime");
         }
+        else if (transform.name == "PlayButton")
+        {
+            mychild = transform.gameObject;
+            mychild.GetComponent<Button>().onClick.AddListener(() => PlayGame());
+        }
 
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayGame()
     {
-
-    }
-    public void OnClickB()
-    {
-        HudManager.instance.LoadHud(EHudScreenID.MenuInicio);
-        Debug.Log("asda");
+        HudManager.instance.LoadHud(EHudScreenID.pantalla_de_juego);
     }
 
     IEnumerator SplashTime()

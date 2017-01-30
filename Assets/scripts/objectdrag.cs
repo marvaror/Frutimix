@@ -40,7 +40,7 @@ public class objectdrag : MonoBehaviour ,IDragHandler,IBeginDragHandler,IEndDrag
             img=itemBeingDragged.GetComponent<Image>().sprite;
             itemBeingDragged = miClone;
             itemBeingDragged.name = namePrefab;
-            Debug.Log("comenze a ser draggeado" + transform.parent.name);
+            //Debug.Log("comenze a ser draggeado" + transform.parent.name);
         }
 	}
 
@@ -63,10 +63,14 @@ public class objectdrag : MonoBehaviour ,IDragHandler,IBeginDragHandler,IEndDrag
 	{
 		itemBeingDragged = null;
 		GetComponent<CanvasGroup>().blocksRaycasts = true;
-		if(transform.parent == startParent){
+        AudioClip c= Resources.Load("Audios/Arrastrar") as AudioClip;
+        if (transform.parent == startParent){
 			transform.position = startPosition;
             miClone.GetComponent<Image>().sprite=img;
-           
+            miClone.transform.parent.GetComponent<AudioSource>().clip = c;
+            miClone.transform.parent.GetComponent<AudioSource>().Play();
+
+
         }
 
         if (miClone.transform.parent == null)

@@ -25,11 +25,11 @@ public class Reproducir_Pista : MonoBehaviour {
 		pista.Stop ();
         ReadJson f;
         f = muestraManager.GetComponent<ReadJson>();
-        int actualLevel = f.level;
+        int actualLevel = f.ChangeLevel;
         actualList = f.MyList();
         if (actualList.Count>0)
         {
-			Debug.Log("entre");
+			//Debug.Log("entre");
             AudioClip sonido = Resources.Load("Audios/" + actualList[0]) as AudioClip;
             AudioMixer mixer = Resources.Load("Mixers/" + actualList[1]) as AudioMixer;
             pista.outputAudioMixerGroup = mixer.FindMatchingGroups(actualList[2])[0];

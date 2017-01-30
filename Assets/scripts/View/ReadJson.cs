@@ -5,7 +5,13 @@ using LitJson;
 using System.Collections.Generic;
 public class ReadJson : MonoBehaviour
 {
-    public int level = 1;
+    [SerializeField]
+    private int level = 1;
+    public int ChangeLevel
+    {
+        get { return level; }
+        set { if (level < 4) { level = value; } else { level = 1; Awake(); } }
+    }
     private JsonData items;
     [SerializeField]
     List <string> componentsLevel1;
@@ -68,7 +74,10 @@ public class ReadJson : MonoBehaviour
     {
         items = JsonMapper.ToObject(json);
         //string aux;
-
+        componentsLevel1.Clear();
+        componentsLevel2.Clear();
+        componentsLevel3.Clear();
+        componentsLevel4.Clear();
         if (items["frutimix"].Count > 0)
         {
            
