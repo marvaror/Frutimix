@@ -8,7 +8,7 @@ public class HudTutorial : MonoBehaviour {
     private Image animation;
     //private Sprite currentImage;
 
-    private int imageIndex = 0;
+    private int imageIndex = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -17,10 +17,10 @@ public class HudTutorial : MonoBehaviour {
         animation = GameObject.Find("Animation").gameObject.GetComponent<Image>();
 
         // Define the first image index
-        imageIndex = 0;
+        imageIndex = 1;
 
         // Changes the image displayed
-        InvokeRepeating("changeImage", 0f, 0.05f);
+        InvokeRepeating("changeImage", 0f, 0.25f);
     }
 
     void changeImage() {
@@ -29,7 +29,7 @@ public class HudTutorial : MonoBehaviour {
         // Define the size of the rect transform
         animation.gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width, Screen.height);
 
-        Texture2D newImage = Resources.Load<Texture2D>("Sprites/Tutorial/Escena_Juego-02_000" + getFormattedNumber(imageIndex));
+        Texture2D newImage = Resources.Load<Texture2D>("Sprites/Tutorial/Ins-001 ("+ getFormattedNumber(imageIndex) + ")");
         Debug.Log(newImage.name);
 
         // Cargo un sprite asset
@@ -43,15 +43,15 @@ public class HudTutorial : MonoBehaviour {
         imageIndex += 1;
 
         // if index overflows the sprite array size
-        if (imageIndex > 55) {
-            imageIndex = 0;
+        if (imageIndex > 80) {
+            imageIndex = 1;
         }
     }
 
     private string getFormattedNumber(int number)
     {
         if (number < 10) {
-            return "0" + number.ToString();
+            return "" + number.ToString();
         } else {
             return number.ToString();
         }
