@@ -56,7 +56,7 @@ public class CompareAudios : MonoBehaviour {
             }
             else {
                 tagsToEvaluate.Add(miNieto.transform.GetChild(0).name);
-                miNieto.transform.GetChild(0).GetComponent<slotsound>().PlaySound();
+                //miNieto.transform.GetChild(0).GetComponent<slotsound>().PlaySound();
             }
 
 
@@ -78,6 +78,7 @@ public class CompareAudios : MonoBehaviour {
             }
             else
             {
+                StopSlots();
                 final.SetActive(true);
             }
         }
@@ -88,6 +89,7 @@ public class CompareAudios : MonoBehaviour {
             vidasObj[vidas].GetComponent<Fade>().inTransition = true;
             if (vidas == 0)
             {
+                StopSlots();
                 perdio.SetActive(true);
             }
 

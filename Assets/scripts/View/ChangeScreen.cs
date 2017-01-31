@@ -28,9 +28,14 @@ public class ChangeScreen : MonoBehaviour
 
     }
 
-    public void PlayGame()
+    public void Skip()
     {
         HudManager.instance.LoadHud(EHudScreenID.pantalla_de_juego);
+    }
+
+    public void PlayGame()
+    {
+        HudManager.instance.LoadHud(EHudScreenID.tuto);
     }
 
     IEnumerator SplashTime()

@@ -6,5 +6,6 @@ using UnityEngine;
 
     Splash,
     MenuInicio,
+    tuto,
     pantalla_de_juego,
 }
