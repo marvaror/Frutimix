@@ -17,4 +17,9 @@ public class Credits : MonoBehaviour {
         menu.SetActive(false);
         credi.SetActive(true);
     }
+
+    public void Salir()
+    {
+        Application.Quit();
+    }
 }
